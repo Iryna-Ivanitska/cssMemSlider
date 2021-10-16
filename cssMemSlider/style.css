@@ -2,22 +2,26 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
 }
+
 header {
     text-align: center;
     padding: 20px 0; 
 }
+
 h1 {
-    font-family: 'Ubuntu', sans-serif;
     color: rgb(255, 174, 0);
     text-shadow: #555 0px 0px 2px,   #555 0px 0px 2px,   #555 0px 0px 2px,
-             #555 0px 0px 2px,   #555 0px 0px 2px,   #555 0px 0px 2px;
+                 #555 0px 0px 2px,   #555 0px 0px 2px,   #555 0px 0px 2px;
 }
+
 main {
     display: flex;
     flex-direction: column;
     row-gap: 5px;
 }
+
 .wrapper {
     width: 90%;
     margin: auto;
@@ -40,22 +44,26 @@ main {
 input {
     display: none;
 }
+
 .labels {
     display: flex;
     width: 30%;
-    justify-content: space-evenly;
+    justify-content: flex-end;
+    gap: 3px;
 }
+
 label {
-    width: 20%;
-    height: 30px;
     /* border: 1px solid red; */
     display: flex;
     cursor: pointer;
     align-items: center;
     justify-content: center;
+    padding: 5%;
 }
 
-
+label:last-child {
+    padding-right: 0;
+}
 
 label::before {
     content: '';
@@ -90,6 +98,10 @@ label:hover::before {
     background: #555;
 }
 
+label:active:hover:before {
+    background: rgb(31, 245, 24);
+}
+
 #slide1:checked ~ .text-wrapper .labels label:nth-of-type(1)::before,
 #slide2:checked ~ .text-wrapper .labels label:nth-of-type(2)::before,
 #slide3:checked ~ .text-wrapper .labels label:nth-of-type(3)::before,
@@ -107,7 +119,6 @@ label:hover::before {
     order: -1;
 }
 
-
 #slide1:checked ~ .text-wrapper .strings > .string1,
 #slide2:checked ~ .text-wrapper .strings > .string2,
 #slide3:checked ~ .text-wrapper .strings > .string3,
@@ -116,3 +127,26 @@ label:hover::before {
 	opacity: 1;
     order: -1;
 } 
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border-top: 3px double gray;
+    padding: 10px;
+    align-items: center;
+}
+
+.github a {
+    text-decoration: none;
+    color: rgb(8, 8, 8);
+}
+.github:hover a {
+    color: #FFA500;
+}
+
+.school:hover a {
+    filter: invert(86%) sepia(31%) saturate(7429%) hue-rotate(356deg) brightness(97%) contrast(109%);
+}
+
+/*  Media queries */
