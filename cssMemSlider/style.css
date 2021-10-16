@@ -1,0 +1,107 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.wrapper {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider {
+    width: 100%;
+    height: calc(100vw * 0.5);
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity ease-in-out .5s;
+}
+
+input {
+    display: none;
+}
+.labels {
+    display: flex;
+    width: 30%;
+    justify-content: space-evenly;
+}
+label {
+    width: 20%;
+    height: 30px;
+    /* border: 1px solid red; */
+    display: block;
+    cursor: pointer;
+    margin: 5px;
+    position: relative;
+    
+}
+
+
+
+label::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid blue;
+    border-radius: 3px;
+    transition: background ease-in-out .3s;
+}
+
+.text-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.strings {
+    position: relative;
+    flex: 1;
+    height: 20px;
+}
+
+.string {
+    position: absolute;
+    left: -500px;
+    transition: all ease-in-out .5s;
+}
+
+label:hover::before {
+    background: rgb(118, 22, 163);
+}
+
+#slide1:checked ~ .text-wrapper .labels label:nth-of-type(1)::before,
+#slide2:checked ~ .text-wrapper .labels label:nth-of-type(2)::before,
+#slide3:checked ~ .text-wrapper .labels label:nth-of-type(3)::before,
+#slide4:checked ~ .text-wrapper .labels label:nth-of-type(4)::before,
+#slide5:checked ~ .text-wrapper .labels label:nth-of-type(5)::before {
+	background: rgb(163, 22, 22);
+}
+
+#slide1:checked ~ .slider > .slide1,
+#slide2:checked ~ .slider > .slide2,
+#slide3:checked ~ .slider > .slide3,
+#slide4:checked ~ .slider > .slide4,
+#slide5:checked ~ .slider > .slide5 {
+	opacity: 1;
+	z-index: 1;
+}
+
+#slide1:checked ~ .text-wrapper .strings > .string1,
+#slide2:checked ~ .text-wrapper .strings > .string2,
+#slide3:checked ~ .text-wrapper .strings > .string3,
+#slide4:checked ~ .text-wrapper .strings > .string4,
+#slide5:checked ~ .text-wrapper .strings > .string5 {
+	left: 0;
+	z-index: 1;
+}
